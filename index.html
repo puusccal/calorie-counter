@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Counter</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Calorie Counter</h1>
+      <p class="sub">Track intake, workouts, and download your daily log.</p>
+    </header>
+
+    <main class="container grid">
+      <section class="card">
+        <h2>Day</h2>
+        <div class="row">
+          <label for="date">Date</label>
+          <input id="date" type="date" />
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Intake</div>
+            <div class="value" id="totalIntake">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Burn</div>
+            <div class="value" id="totalBurn">0</div>
+          </div>
+          <div class="stat">
+            <div class="label">Net</div>
+            <div class="value" id="netCalories">0</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="downloadBtn" class="primary">Download CSV</button>
+          <button id="clearDayBtn" class="danger">Clear Day</button>
+        </div>
+
+        <p class="hint">
+          Data is stored locally in your browser (localStorage) per date.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Add Meal (Intake)</h2>
+
+        <form id="mealForm" class="form">
+          <div class="row">
+            <label for="mealName">Meal</label>
+            <input id="mealName" type="text" placeholder="e.g., Breakfast burrito" required />
+          </div>
+          <div class="row">
+            <label for="mealCalories">Calories</label>
+            <input id="mealCalories" type="number" min="0" step="1" placeholder="e.g., 650" required />
+          </div>
+          <button type="submit" class="primary">Add Meal</button>
+        </form>
+
+        <div class="listHeader">
+          <h3>Meals</h3>
+          <span class="count" id="mealCount">0 items</span>
+        </div>
+        <ul id="mealList" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Add Workout (Burn)</h2>
+
+        <form id="workoutForm" class="form">
+          <div class="row">
+            <label for="workoutName">Workout</label>
+            <input id="workoutName" type="text" placeholder="e.g., Run 30 min" required />
+          </div>
+          <div class="row">
+            <label for="workoutCalories">Calories Burned</label>
+            <input id="workoutCalories" type="number" min="0" step="1" placeholder="e.g., 300" required />
+          </div>
+          <button type="submit" class="primary">Add Workout</button>
+        </form>
+
+        <div class="listHeader">
+          <h3>Workouts</h3>
+          <span class="count" id="workoutCount">0 items</span>
+        </div>
+        <ul id="workoutList" class="list"></ul>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>Generic calorie counter • Offline-capable • No account required</small>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
